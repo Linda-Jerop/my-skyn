@@ -11,6 +11,7 @@ export default function Navbar() {
           <Link to="/" className="text-xl font-bold">MYSKYN✌🏾</Link>
           <div className="flex space-x-4">
             <Link to="/products" className="hover:text-blue-600">Products</Link>
+            <Link to="/pairing" className="hover:text-blue-600">Pairing Tool</Link>
             {currentUser ? (
               <>
                 <Link to="/profile" className="hover:text-blue-600">Profile</Link>

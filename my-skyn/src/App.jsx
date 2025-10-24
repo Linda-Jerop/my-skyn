@@ -6,6 +6,7 @@ import Profile from './pages/Profile'
 import Login from './components/auth/Login'
 import ProtectedRoute from './components/auth/ProtectedRoute'
 import { useAuth } from './contexts/AuthContext'
+import ProductPairing from './components/ProductPairing';
 
 function App() {
   const { currentUser } = useAuth();
@@ -16,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/pairing" element={<ProductPairing />} />
         <Route 
           path="/products" 
           element={
