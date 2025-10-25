@@ -1,0 +1,567 @@
+{
+  "products": {
+    "prod1": {
+      "id": "prod1",
+      "name": "Hydrating Facial Cleanser",
+      "category": "cleanser",
+      "brand": "CeraVe",
+      "price": 14.99,
+      "skinType": ["dry", "normal", "sensitive"],
+      "ingredients": ["ceramides", "hyaluronic acid", "glycerin"],
+      "description": "Non-foaming cleanser that gently removes dirt and oil while maintaining skin's natural moisture barrier",
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod2": {
+      "id": "prod2",
+      "name": "Foaming Facial Cleanser",
+      "category": "cleanser",
+      "brand": "CeraVe",
+      "price": 13.99,
+      "skinType": ["oily", "combination", "normal"],
+      "ingredients": ["ceramides", "niacinamide", "hyaluronic acid"],
+      "description": "Refreshing gel cleanser that removes excess oil without disrupting the skin barrier",
+      "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod3": {
+      "id": "prod3",
+      "name": "Kind to Skin Refreshing Facial Wash",
+      "category": "cleanser",
+      "brand": "Simple",
+      "price": 6.99,
+      "skinType": ["all", "sensitive"],
+      "ingredients": ["vitamin B5", "vitamin E", "glycerin"],
+      "description": "Gentle cleanser perfect for sensitive skin, with no harsh chemicals or artificial perfumes",
+      "image": "https://images.unsplash.com/photo-1571781418606-70265b9cce90?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod4": {
+      "id": "prod4",
+      "name": "Micellar Cleansing Water",
+      "category": "cleanser",
+      "brand": "Garnier",
+      "price": 8.99,
+      "skinType": ["all", "sensitive"],
+      "ingredients": ["micelles", "glycerin"],
+      "description": "All-in-one cleanser that removes makeup and impurities without harsh rubbing",
+      "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod5": {
+      "id": "prod5",
+      "name": "Brightening Gel Cleanser",
+      "category": "cleanser",
+      "brand": "Uncover",
+      "price": 12.99,
+      "skinType": ["normal", "combination", "oily"],
+      "ingredients": ["vitamin C", "glycolic acid", "aloe vera"],
+      "description": "Brightening cleanser that gently exfoliates while cleansing for radiant skin",
+      "image": "https://images.unsplash.com/photo-1570194065650-d99fb4a2b6e4?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod6": {
+      "id": "prod6",
+      "name": "Radiance Boosting Cleanser",
+      "category": "cleanser",
+      "brand": "D'ivine",
+      "price": 11.99,
+      "skinType": ["dry", "normal", "dull"],
+      "ingredients": ["papaya extract", "vitamin E", "honey"],
+      "description": "Nourishing cleanser enriched with natural extracts for glowing skin",
+      "image": "https://images.unsplash.com/photo-1585856331426-3145bfa40d4c?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod7": {
+      "id": "prod7",
+      "name": "SA Smoothing Cleanser",
+      "category": "cleanser",
+      "brand": "CeraVe",
+      "price": 15.99,
+      "skinType": ["oily", "acne-prone", "rough"],
+      "ingredients": ["salicylic acid", "ceramides", "niacinamide"],
+      "description": "Exfoliating cleanser with salicylic acid to smooth rough, bumpy skin",
+      "image": "https://images.unsplash.com/photo-1556228852-80c3b5796e6e?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod8": {
+      "id": "prod8",
+      "name": "Smoothing Facial Scrub",
+      "category": "scrub",
+      "brand": "Simple",
+      "price": 7.99,
+      "skinType": ["normal", "combination"],
+      "ingredients": ["rice granules", "vitamin E", "glycerin"],
+      "description": "Gentle exfoliating scrub with rice granules to buff away dead skin cells",
+      "image": "https://images.unsplash.com/photo-1617897903246-719242758050?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod9": {
+      "id": "prod9",
+      "name": "SkinActive Brightening Scrub",
+      "category": "scrub",
+      "brand": "Garnier",
+      "price": 9.99,
+      "skinType": ["normal", "dull", "combination"],
+      "ingredients": ["vitamin C", "apricot kernels", "glycerin"],
+      "description": "Vitamin C enriched scrub for brighter, more radiant skin",
+      "image": "https://images.unsplash.com/photo-1612817288484-6f916006741a?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod10": {
+      "id": "prod10",
+      "name": "Coffee & Cocoa Glow Scrub",
+      "category": "scrub",
+      "brand": "D'ivine",
+      "price": 13.99,
+      "skinType": ["dry", "normal", "dull"],
+      "ingredients": ["coffee extract", "cocoa butter", "brown sugar"],
+      "description": "Energizing scrub that exfoliates and nourishes for smooth, glowing skin",
+      "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod11": {
+      "id": "prod11",
+      "name": "Charcoal Detox Scrub",
+      "category": "scrub",
+      "brand": "Uncover",
+      "price": 14.99,
+      "skinType": ["oily", "combination", "acne-prone"],
+      "ingredients": ["activated charcoal", "salicylic acid", "tea tree oil"],
+      "description": "Deep cleansing scrub that draws out impurities and unclogs pores",
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod12": {
+      "id": "prod12",
+      "name": "PM Facial Moisturizing Lotion",
+      "category": "moisturizer",
+      "brand": "CeraVe",
+      "price": 16.99,
+      "skinType": ["all", "normal", "dry"],
+      "ingredients": ["ceramides", "niacinamide", "hyaluronic acid"],
+      "description": "Lightweight night cream that restores skin barrier while you sleep",
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod13": {
+      "id": "prod13",
+      "name": "Moisturizing Cream",
+      "category": "moisturizer",
+      "brand": "CeraVe",
+      "price": 18.99,
+      "skinType": ["dry", "very dry", "sensitive"],
+      "ingredients": ["ceramides", "hyaluronic acid", "petrolatum"],
+      "description": "Rich, non-greasy cream providing 24-hour hydration for dry skin",
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod14": {
+      "id": "prod14",
+      "name": "Hydrating Light Moisturizer",
+      "category": "moisturizer",
+      "brand": "Simple",
+      "price": 8.99,
+      "skinType": ["normal", "combination", "sensitive"],
+      "ingredients": ["vitamin E", "glycerin", "panthenol"],
+      "description": "Light, fast-absorbing moisturizer perfect for daily use",
+      "image": "https://images.unsplash.com/photo-1571781418606-70265b9cce90?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod15": {
+      "id": "prod15",
+      "name": "Moisture Bomb Sheet Mask",
+      "category": "moisturizer",
+      "brand": "Garnier",
+      "price": 4.99,
+      "skinType": ["all", "dry"],
+      "ingredients": ["hyaluronic acid", "glycerin", "pomegranate extract"],
+      "description": "Intensely hydrating sheet mask for an instant moisture boost",
+      "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod16": {
+      "id": "prod16",
+      "name": "Glow Illuminate Day Cream",
+      "category": "moisturizer",
+      "brand": "Uncover",
+      "price": 19.99,
+      "skinType": ["normal", "dull", "combination"],
+      "ingredients": ["vitamin C", "niacinamide", "squalane"],
+      "description": "Brightening day cream that evens skin tone and adds radiance",
+      "image": "https://images.unsplash.com/photo-1570194065650-d99fb4a2b6e4?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod17": {
+      "id": "prod17",
+      "name": "Shea Butter Nourishing Cream",
+      "category": "moisturizer",
+      "brand": "D'ivine",
+      "price": 15.99,
+      "skinType": ["dry", "mature", "normal"],
+      "ingredients": ["shea butter", "coconut oil", "vitamin E"],
+      "description": "Deeply nourishing cream enriched with African shea butter",
+      "image": "https://images.unsplash.com/photo-1585856331426-3145bfa40d4c?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod18": {
+      "id": "prod18",
+      "name": "Vitamin C Brightening Serum",
+      "category": "serum",
+      "brand": "Garnier",
+      "price": 24.99,
+      "skinType": ["all", "dull", "normal"],
+      "ingredients": ["vitamin C", "niacinamide", "salicylic acid"],
+      "description": "Powerful brightening serum to reduce dark spots and even skin tone",
+      "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod19": {
+      "id": "prod19",
+      "name": "Retinol Renewal Serum",
+      "category": "serum",
+      "brand": "CeraVe",
+      "price": 29.99,
+      "skinType": ["normal", "mature", "combination"],
+      "ingredients": ["retinol", "ceramides", "niacinamide"],
+      "description": "Anti-aging serum with retinol to reduce fine lines and wrinkles",
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod20": {
+      "id": "prod20",
+      "name": "Hyaluronic Acid Hydrating Serum",
+      "category": "serum",
+      "brand": "Uncover",
+      "price": 22.99,
+      "skinType": ["all", "dry", "dehydrated"],
+      "ingredients": ["hyaluronic acid", "glycerin", "peptides"],
+      "description": "Intense hydration serum that plumps and smooths skin",
+      "image": "https://images.unsplash.com/photo-1570194065650-d99fb4a2b6e4?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod21": {
+      "id": "prod21",
+      "name": "Niacinamide Pore Refining Serum",
+      "category": "serum",
+      "brand": "Simple",
+      "price": 18.99,
+      "skinType": ["oily", "combination", "large pores"],
+      "ingredients": ["niacinamide", "zinc", "witch hazel"],
+      "description": "Mattifying serum that minimizes pores and controls oil",
+      "image": "https://images.unsplash.com/photo-1571781418606-70265b9cce90?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod22": {
+      "id": "prod22",
+      "name": "Royal Jelly Radiance Serum",
+      "category": "serum",
+      "brand": "D'ivine",
+      "price": 26.99,
+      "skinType": ["dry", "mature", "dull"],
+      "ingredients": ["royal jelly", "honey", "propolis"],
+      "description": "Luxurious serum with royal jelly for nourished, glowing skin",
+      "image": "https://images.unsplash.com/photo-1585856331426-3145bfa40d4c?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod23": {
+      "id": "prod23",
+      "name": "AM Facial Moisturizing Lotion SPF 30",
+      "category": "sunscreen",
+      "brand": "CeraVe",
+      "price": 17.99,
+      "skinType": ["all", "normal", "dry"],
+      "ingredients": ["zinc oxide", "ceramides", "niacinamide", "hyaluronic acid"],
+      "description": "Hydrating morning moisturizer with broad-spectrum SPF 30 protection",
+      "image": "https://images.unsplash.com/photo-1556228720-195a672e8a03?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod24": {
+      "id": "prod24",
+      "name": "Ultra-Light UV Lotion SPF 50",
+      "category": "sunscreen",
+      "brand": "CeraVe",
+      "price": 19.99,
+      "skinType": ["oily", "combination", "sensitive"],
+      "ingredients": ["zinc oxide", "titanium dioxide", "niacinamide"],
+      "description": "Lightweight, non-greasy sunscreen perfect for daily use",
+      "image": "https://images.unsplash.com/photo-1556228852-80c3b5796e6e?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod25": {
+      "id": "prod25",
+      "name": "Protecting Moisturizer SPF 30",
+      "category": "sunscreen",
+      "brand": "Simple",
+      "price": 12.99,
+      "skinType": ["all", "sensitive"],
+      "ingredients": ["octinoxate", "zinc oxide", "vitamin E"],
+      "description": "Gentle daily moisturizer with SPF protection for sensitive skin",
+      "image": "https://images.unsplash.com/photo-1571781418606-70265b9cce90?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod26": {
+      "id": "prod26",
+      "name": "Bright Complete Vitamin C SPF 30",
+      "category": "sunscreen",
+      "brand": "Garnier",
+      "price": 14.99,
+      "skinType": ["normal", "dull", "combination"],
+      "ingredients": ["vitamin C", "octinoxate", "niacinamide"],
+      "description": "Brightening sunscreen that protects and evens skin tone",
+      "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod27": {
+      "id": "prod27",
+      "name": "Glow Shield SPF 50",
+      "category": "sunscreen",
+      "brand": "Uncover",
+      "price": 21.99,
+      "skinType": ["all", "normal"],
+      "ingredients": ["zinc oxide", "vitamin C", "hyaluronic acid"],
+      "description": "High protection sunscreen with added skincare benefits",
+      "image": "https://images.unsplash.com/photo-1570194065650-d99fb4a2b6e4?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    },
+    "prod28": {
+      "id": "prod28",
+      "name": "Natural Shield SPF 30",
+      "category": "sunscreen",
+      "brand": "D'ivine",
+      "price": 16.99,
+      "skinType": ["dry", "sensitive", "normal"],
+      "ingredients": ["zinc oxide", "shea butter", "coconut oil"],
+      "description": "Natural mineral sunscreen with nourishing African botanicals",
+      "image": "https://images.unsplash.com/photo-1585856331426-3145bfa40d4c?w=300&h=300&fit=crop",
+      "createdAt": "2025-10-25T12:00:00.000Z"
+    }
+  },
+  "compatibility": {
+    "rule1": {
+      "product1": "prod1",
+      "product2": "prod12",
+      "product1Name": "CeraVe Hydrating Cleanser",
+      "product2Name": "CeraVe PM Moisturizer",
+      "compatible": true,
+      "reason": "Both contain ceramides and hyaluronic acid - work together to strengthen skin barrier",
+      "note": "Perfect evening routine pairing"
+    },
+    "rule2": {
+      "product1": "prod2",
+      "product2": "prod21",
+      "product1Name": "CeraVe Foaming Cleanser",
+      "product2Name": "Simple Niacinamide Serum",
+      "compatible": true,
+      "reason": "Both contain niacinamide - excellent for oil control and pore refinement",
+      "note": "Ideal for oily/combination skin routine"
+    },
+    "rule3": {
+      "product1": "prod5",
+      "product2": "prod19",
+      "product1Name": "Uncover Vitamin C Cleanser",
+      "product2Name": "CeraVe Retinol Serum",
+      "compatible": false,
+      "reason": "Vitamin C and retinol can cause irritation when used together",
+      "note": "Use Vitamin C in AM, Retinol in PM"
+    },
+    "rule4": {
+      "product1": "prod7",
+      "product2": "prod11",
+      "product1Name": "CeraVe SA Cleanser",
+      "product2Name": "Uncover Charcoal Scrub",
+      "compatible": false,
+      "reason": "Both contain salicylic acid - double exfoliation can over-strip skin",
+      "note": "Use on alternate days to prevent irritation"
+    },
+    "rule5": {
+      "product1": "prod18",
+      "product2": "prod19",
+      "product1Name": "Garnier Vitamin C Serum",
+      "product2Name": "CeraVe Retinol Serum",
+      "compatible": false,
+      "reason": "Vitamin C (AM) and Retinol (PM) should not be layered together",
+      "note": "Different pH requirements and potential irritation"
+    },
+    "rule6": {
+      "product1": "prod3",
+      "product2": "prod14",
+      "product1Name": "Simple Facial Wash",
+      "product2Name": "Simple Moisturizer",
+      "compatible": true,
+      "reason": "Both gentle, fragrance-free formulas perfect for sensitive skin",
+      "note": "Same brand synergy for sensitive skin"
+    },
+    "rule7": {
+      "product1": "prod20",
+      "product2": "prod13",
+      "product1Name": "Uncover Hyaluronic Serum",
+      "product2Name": "CeraVe Moisturizing Cream",
+      "compatible": true,
+      "reason": "Hyaluronic acid draws moisture, heavy cream seals it in",
+      "note": "Layer serum first, then cream for maximum hydration"
+    },
+    "rule8": {
+      "product1": "prod4",
+      "product2": "prod18",
+      "product1Name": "Garnier Micellar Water",
+      "product2Name": "Garnier Vitamin C Serum",
+      "compatible": true,
+      "reason": "Micellar water cleanses without stripping, prepares skin for actives",
+      "note": "Cleanse first, apply serum to clean skin"
+    },
+    "rule9": {
+      "product1": "prod8",
+      "product2": "prod19",
+      "product1Name": "Simple Facial Scrub",
+      "product2Name": "CeraVe Retinol Serum",
+      "compatible": false,
+      "reason": "Physical exfoliation + retinol can cause excessive irritation",
+      "note": "Use scrub 2-3x/week, retinol on non-scrub days"
+    },
+    "rule10": {
+      "product1": "prod16",
+      "product2": "prod26",
+      "product1Name": "Uncover Vitamin C Day Cream",
+      "product2Name": "Garnier Vitamin C SPF 30",
+      "compatible": true,
+      "reason": "Both contain Vitamin C and work synergistically for brightening + protection",
+      "note": "Perfect AM routine for radiant, protected skin"
+    },
+    "rule11": {
+      "product1": "prod21",
+      "product2": "prod24",
+      "product1Name": "Simple Niacinamide Serum",
+      "product2Name": "CeraVe Ultra-Light SPF 50",
+      "compatible": true,
+      "reason": "Niacinamide enhances skin barrier, SPF protects - ideal morning combo",
+      "note": "Apply serum, then sunscreen as final step"
+    },
+    "rule12": {
+      "product1": "prod7",
+      "product2": "prod21",
+      "product1Name": "CeraVe SA Cleanser",
+      "product2Name": "Simple Niacinamide Serum",
+      "compatible": true,
+      "reason": "Salicylic acid cleanses pores, niacinamide calms and refines",
+      "note": "Great for acne-prone skin routine"
+    },
+    "rule13": {
+      "product1": "prod11",
+      "product2": "prod19",
+      "product1Name": "Uncover Charcoal Scrub",
+      "product2Name": "CeraVe Retinol Serum",
+      "compatible": false,
+      "reason": "Scrub exfoliates physically, retinol chemically - too harsh together",
+      "note": "Space out usage by 24-48 hours"
+    },
+    "rule14": {
+      "product1": "prod6",
+      "product2": "prod17",
+      "product1Name": "D'ivine Radiance Cleanser",
+      "product2Name": "D'ivine Shea Butter Cream",
+      "compatible": true,
+      "reason": "Natural ingredients complement each other for nourished, glowing skin",
+      "note": "Same brand, natural formulas work in harmony"
+    },
+    "rule15": {
+      "product1": "prod22",
+      "product2": "prod28",
+      "product1Name": "D'ivine Royal Jelly Serum",
+      "product2Name": "D'ivine Natural Shield SPF",
+      "compatible": true,
+      "reason": "Natural, nourishing ingredients layer well under mineral sunscreen",
+      "note": "Luxurious AM routine for dry/mature skin"
+    },
+    "rule16": {
+      "product1": "prod9",
+      "product2": "prod18",
+      "product1Name": "Garnier Vitamin C Scrub",
+      "product2Name": "Garnier Vitamin C Serum",
+      "compatible": false,
+      "reason": "Double dose of exfoliation (physical + chemical) can irritate",
+      "note": "Use scrub 2x/week, serum daily on non-scrub days"
+    },
+    "rule17": {
+      "product1": "prod1",
+      "product2": "prod23",
+      "product1Name": "CeraVe Hydrating Cleanser",
+      "product2Name": "CeraVe AM SPF 30",
+      "compatible": true,
+      "reason": "Both formulated with ceramides for barrier support, perfect AM routine",
+      "note": "Cleanse + protect morning routine"
+    },
+    "rule18": {
+      "product1": "prod20",
+      "product2": "prod23",
+      "product1Name": "Uncover Hyaluronic Serum",
+      "product2Name": "CeraVe AM SPF 30",
+      "compatible": true,
+      "reason": "Hyaluronic acid hydrates, ceramides + SPF protect",
+      "note": "Layer serum under moisturizer with SPF"
+    },
+    "rule19": {
+      "product1": "prod18",
+      "product2": "prod7",
+      "product1Name": "Garnier Vitamin C Serum",
+      "product2Name": "CeraVe SA Cleanser",
+      "compatible": false,
+      "reason": "Vitamin C serum and salicylic acid can be too acidic together",
+      "note": "Use SA cleanser PM, Vitamin C serum AM"
+    },
+    "rule20": {
+      "product1": "prod10",
+      "product2": "prod22",
+      "product1Name": "D'ivine Coffee Scrub",
+      "product2Name": "D'ivine Royal Jelly Serum",
+      "compatible": true,
+      "reason": "Scrub exfoliates for better serum absorption, natural ingredients complement",
+      "note": "Use scrub 2x/week, serum absorbs better on smooth skin"
+    },
+    "rule21": {
+      "product1": "prod4",
+      "product2": "prod20",
+      "product1Name": "Garnier Micellar Water",
+      "product2Name": "Uncover Hyaluronic Serum",
+      "compatible": true,
+      "reason": "Micellar water cleanses gently, hyaluronic acid hydrates on clean skin",
+      "note": "Cleanse, then apply serum to damp skin for best absorption"
+    },
+    "rule22": {
+      "product1": "prod2",
+      "product2": "prod24",
+      "product1Name": "CeraVe Foaming Cleanser",
+      "product2Name": "CeraVe Ultra-Light SPF 50",
+      "compatible": true,
+      "reason": "Same ceramide technology, foaming cleanser + lightweight SPF for oily skin",
+      "note": "Non-greasy AM routine for combination/oily skin"
+    },
+    "rule23": {
+      "product1": "prod19",
+      "product2": "prod12",
+      "product1Name": "CeraVe Retinol Serum",
+      "product2Name": "CeraVe PM Moisturizer",
+      "compatible": true,
+      "reason": "Retinol works overnight, PM moisturizer with niacinamide supports renewal",
+      "note": "Perfect nighttime anti-aging routine"
+    },
+    "rule24": {
+      "product1": "prod5",
+      "product2": "prod27",
+      "product1Name": "Uncover Vitamin C Cleanser",
+      "product2Name": "Uncover Glow Shield SPF 50",
+      "compatible": true,
+      "reason": "Both contain Vitamin C for brightening, SPF protects from sun damage",
+      "note": "Brightening + protection morning routine"
+    },
+    "rule25": {
+      "product1": "prod11",
+      "product2": "prod21",
+      "product1Name": "Uncover Charcoal Scrub",
+      "product2Name": "Simple Niacinamide Serum",
+      "compatible": true,
+      "reason": "Scrub deep cleans pores, niacinamide refines and calms",
+      "note": "Use scrub 2-3x/week, serum daily for pore care"
+    }
+  }
+}
