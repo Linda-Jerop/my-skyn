@@ -1,0 +1,353 @@
+{
+  "users": {
+    "userId1": {
+      "profile": {
+        "email": "user@example.com",
+        "displayName": "John Doe",
+        "authProvider": "google",
+        "createdAt": 1698067200000,
+        "lastLogin": 1698153600000
+      },
+      "skinProfile": {
+        "skinType": "combination",
+        "skinTone": "medium",
+        "concerns": ["acne", "dark_spots", "aging"],
+        "sensitivity": "moderate",
+        "updatedAt": 1698153600000
+      },
+      "savedProducts": {
+        "productId1": {
+          "addedAt": 1698153600000,
+          "notes": "Works great for my skin"
+        },
+        "productId2": {
+          "addedAt": 1698150000000
+        }
+      },
+      "savedRoutines": {
+        "routineId1": {
+          "name": "Morning Routine",
+          "createdAt": 1698153600000,
+          "products": {
+            "step1": "productId1",
+            "step2": "productId3",
+            "step3": "productId5"
+          },
+          "timeOfDay": "morning"
+        }
+      },
+      "cart": {
+        "productId1": {
+          "quantity": 1,
+          "vendor": "vendor1",
+          "addedAt": 1698153600000
+        }
+      },
+      "reviewsWritten": {
+        "reviewId1": true,
+        "reviewId2": true
+      }
+    }
+  },
+
+  "products": {
+    "productId1": {
+      "name": "Retinol Night Serum",
+      "brand": "BrandName",
+      "category": "serum",
+      "imageUrl": "https://example.com/image.jpg",
+      "price": 45.99,
+      "description": "Anti-aging retinol serum",
+      "ingredients": {
+        "retinol": {
+          "concentration": 0.5,
+          "order": 1,
+          "category": "active"
+        },
+        "hyaluronic_acid": {
+          "concentration": 1.0,
+          "order": 2,
+          "category": "hydrator"
+        },
+        "niacinamide": {
+          "concentration": 2.0,
+          "order": 3,
+          "category": "active"
+        }
+      },
+      "suitableFor": {
+        "skinTypes": ["normal", "oily", "combination"],
+        "concerns": ["aging", "fine_lines", "texture"]
+      },
+      "usage": {
+        "timeOfDay": "night",
+        "frequency": "2-3 times per week"
+      },
+      "barcode": "123456789",
+      "vendors": {
+        "vendor1": {
+          "price": 45.99,
+          "url": "https://vendor1.com/product",
+          "inStock": true
+        },
+        "vendor2": {
+          "price": 42.99,
+          "url": "https://vendor2.com/product",
+          "inStock": true
+        }
+      },
+      "ratings": {
+        "average": 4.5,
+        "count": 234
+      },
+      "createdAt": 1698067200000,
+      "updatedAt": 1698153600000
+    }
+  },
+
+  "ingredients": {
+    "retinol": {
+      "name": "Retinol",
+      "aliases": ["vitamin_a", "retinoic_acid"],
+      "category": "active",
+      "benefits": ["anti-aging", "acne", "texture", "fine_lines"],
+      "description": "Powerful anti-aging ingredient that increases cell turnover",
+      "usage": {
+        "timeOfDay": "night",
+        "buildTolerance": true,
+        "startFrequency": "2 times per week"
+      },
+      "contraindications": ["pregnancy", "breastfeeding"],
+      "suitableFor": {
+        "skinTypes": ["all"],
+        "notFor": ["extremely_sensitive"]
+      },
+      "incompatibleWith": ["vitamin_c", "aha", "bha", "benzoyl_peroxide"],
+      "compatibleWith": ["hyaluronic_acid", "ceramides", "peptides"],
+      "cautionWith": ["niacinamide"],
+      "strength": "high",
+      "phSensitive": true,
+      "sunSensitivity": true
+    },
+    "hyaluronic_acid": {
+      "name": "Hyaluronic Acid",
+      "aliases": ["ha", "sodium_hyaluronate"],
+      "category": "hydrator",
+      "benefits": ["hydration", "plumping", "moisture_retention"],
+      "description": "Powerful humectant that holds up to 1000x its weight in water",
+      "usage": {
+        "timeOfDay": "both",
+        "buildTolerance": false
+      },
+      "suitableFor": {
+        "skinTypes": ["all"]
+      },
+      "incompatibleWith": [],
+      "compatibleWith": ["retinol", "niacinamide", "vitamin_c", "aha", "bha"],
+      "strength": "low",
+      "phSensitive": false,
+      "sunSensitivity": false
+    },
+    "vitamin_c": {
+      "name": "Vitamin C",
+      "aliases": ["ascorbic_acid", "l_ascorbic_acid"],
+      "category": "active",
+      "benefits": ["brightening", "dark_spots", "antioxidant", "anti_aging"],
+      "description": "Potent antioxidant that brightens and protects skin",
+      "usage": {
+        "timeOfDay": "morning",
+        "buildTolerance": true
+      },
+      "suitableFor": {
+        "skinTypes": ["all"],
+        "notFor": ["extremely_sensitive"]
+      },
+      "incompatibleWith": ["retinol", "niacinamide", "aha", "bha"],
+      "compatibleWith": ["hyaluronic_acid", "vitamin_e", "ferulic_acid"],
+      "strength": "high",
+      "phSensitive": true,
+      "sunSensitivity": false,
+      "oxidizes": true
+    },
+    "niacinamide": {
+      "name": "Niacinamide",
+      "aliases": ["vitamin_b3", "nicotinamide"],
+      "category": "active",
+      "benefits": ["pores", "oil_control", "brightening", "barrier_repair"],
+      "description": "Multi-tasking ingredient that regulates oil and strengthens skin barrier",
+      "usage": {
+        "timeOfDay": "both",
+        "buildTolerance": false
+      },
+      "suitableFor": {
+        "skinTypes": ["all"]
+      },
+      "incompatibleWith": ["vitamin_c"],
+      "compatibleWith": ["hyaluronic_acid", "ceramides", "peptides"],
+      "cautionWith": ["retinol"],
+      "strength": "medium",
+      "phSensitive": false,
+      "sunSensitivity": false
+    }
+  },
+
+  "compatibilityRules": {
+    "rule1": {
+      "ingredient1": "retinol",
+      "ingredient2": "vitamin_c",
+      "compatibility": "incompatible",
+      "reason": "pH conflict and potential irritation",
+      "severity": "high",
+      "recommendation": "Use vitamin C in the morning and retinol at night"
+    },
+    "rule2": {
+      "ingredient1": "retinol",
+      "ingredient2": "hyaluronic_acid",
+      "compatibility": "compatible",
+      "reason": "HA helps buffer retinol irritation",
+      "severity": "none",
+      "recommendation": "Apply retinol first, then hyaluronic acid"
+    },
+    "rule3": {
+      "ingredient1": "niacinamide",
+      "ingredient2": "vitamin_c",
+      "compatibility": "caution",
+      "reason": "May cause flushing in some users at high concentrations",
+      "severity": "low",
+      "recommendation": "Use at different times or ensure products have compatible pH"
+    },
+    "rule4": {
+      "ingredient1": "retinol",
+      "ingredient2": "aha",
+      "compatibility": "incompatible",
+      "reason": "Excessive exfoliation and irritation risk",
+      "severity": "high",
+      "recommendation": "Alternate nights or use AHA in morning"
+    }
+  },
+
+  "routines": {
+    "routineId1": {
+      "userId": "userId1",
+      "name": "Anti-Aging Morning Routine",
+      "isPublic": true,
+      "timeOfDay": "morning",
+      "products": {
+        "step1": {
+          "productId": "productId2",
+          "name": "Gentle Cleanser",
+          "order": 1
+        },
+        "step2": {
+          "productId": "productId4",
+          "name": "Vitamin C Serum",
+          "order": 2
+        },
+        "step3": {
+          "productId": "productId6",
+          "name": "Moisturizer",
+          "order": 3
+        },
+        "step4": {
+          "productId": "productId8",
+          "name": "SPF 50",
+          "order": 4
+        }
+      },
+      "compatibilityScore": 95,
+      "createdAt": 1698153600000,
+      "updatedAt": 1698153600000,
+      "likes": 45,
+      "saves": 23
+    }
+  },
+
+  "reviews": {
+    "reviewId1": {
+      "userId": "userId1",
+      "productId": "productId1",
+      "rating": 5,
+      "title": "Amazing results!",
+      "review": "This retinol serum transformed my skin",
+      "skinType": "combination",
+      "verified": true,
+      "helpful": 12,
+      "createdAt": 1698153600000,
+      "images": ["url1", "url2"]
+    }
+  },
+
+  "educationalContent": {
+    "articleId1": {
+      "title": "Understanding Retinol: A Complete Guide",
+      "category": "ingredients",
+      "content": "Full article content...",
+      "author": "Dr. Smith",
+      "tags": ["retinol", "anti-aging", "beginner"],
+      "relatedIngredients": ["retinol", "hyaluronic_acid"],
+      "publishedAt": 1698153600000,
+      "views": 1234,
+      "imageUrl": "https://example.com/article.jpg"
+    }
+  },
+
+  "pairingAnalysis": {
+    "analysisId1": {
+      "userId": "userId1",
+      "productIds": ["productId1", "productId4", "productId6"],
+      "result": {
+        "overallCompatibility": "safe",
+        "score": 85,
+        "warnings": [
+          {
+            "severity": "medium",
+            "message": "Retinol and AHA detected - use at different times",
+            "ingredients": ["retinol", "glycolic_acid"]
+          }
+        ],
+        "suggestions": [
+          "Add a hydrating serum between steps 2 and 3",
+          "Consider using retinol only 2-3 times per week initially"
+        ]
+      },
+      "createdAt": 1698153600000
+    }
+  },
+
+  "skinConcerns": {
+    "acne": {
+      "name": "Acne",
+      "description": "Inflammatory skin condition",
+      "recommendedIngredients": ["salicylic_acid", "niacinamide", "benzoyl_peroxide"],
+      "avoidIngredients": ["heavy_oils", "coconut_oil"]
+    },
+    "aging": {
+      "name": "Anti-Aging",
+      "description": "Fine lines, wrinkles, loss of firmness",
+      "recommendedIngredients": ["retinol", "peptides", "vitamin_c", "hyaluronic_acid"],
+      "avoidIngredients": []
+    },
+    "dark_spots": {
+      "name": "Hyperpigmentation",
+      "description": "Dark spots and uneven skin tone",
+      "recommendedIngredients": ["vitamin_c", "niacinamide", "alpha_arbutin", "kojic_acid"],
+      "avoidIngredients": []
+    }
+  },
+
+  "communityActivity": {
+    "activityId1": {
+      "userId": "userId1",
+      "type": "shared_routine",
+      "routineId": "routineId1",
+      "timestamp": 1698153600000,
+      "comments": {
+        "commentId1": {
+          "userId": "userId2",
+          "text": "Love this routine!",
+          "timestamp": 1698157200000
+        }
+      }
+    }
+  }
+}

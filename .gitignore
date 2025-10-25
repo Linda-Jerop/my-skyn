@@ -6,10 +6,16 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+firebase-debug.log*
+firebase-debug.*.log*
 
-node_modules
+# Dependencies
+node_modules/
+
+# Build outputs
 dist
 dist-ssr
+build/Release
 *.local
 
 # Editor directories and files
@@ -30,9 +36,41 @@ dist-ssr
 
 # Firebase
 .firebase/
-firebase-debug.log
 .firebaserc
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+lib-cov
+coverage
+.nyc_output
+
+# Build tools
+.grunt
+bower_components
+.lock-wscript
+
+# npm
+.npm
+.eslintcache
+
+# REPL history
+.node_repl_history
+
+# Package files
+*.tgz
+
+# Yarn
+.yarn-integrity
 
 # OS
 .DS_Store
 Thumbs.db
+
+# dataconnect generated files
+.dataconnect
+>>>>>>> 78b1f4eb2ebc516bedcf0c83279e592323663694
