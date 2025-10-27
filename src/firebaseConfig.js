@@ -1,30 +1,29 @@
-// Import the functions you need from the SDKs you need
+// Import Firebase SDK functions needed for our app
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";  // Import Realtime Database functions
-import { getAuth } from "firebase/auth";  // Add this import
-// Import firebase Auth if you need authentication
-// If you want analytics, keep this:
-// import { getAnalytics } from "firebase/analytics";
+// Import Realtime Database to store and sync product data
+import { getDatabase } from "firebase/database";
+// Import Authentication for user login/signup functionality
+import { getAuth } from "firebase/auth";
 
-// Your web app's Firebase configuration
+// Firebase project configuration object
+// Contains unique identifiers for connecting to our Firebase project
 const firebaseConfig = {
-  apiKey: "AIzaSyCsTlPcKD0Nq8ZE3vIp5NdFHZA_Uv-FMmE",
-  authDomain: "my-skyn.firebaseapp.com",
-  databaseURL: "https://my-skyn-default-rtdb.firebaseio.com",
-  projectId: "my-skyn",
-  storageBucket: "my-skyn.firebasestorage.app",
-  messagingSenderId: "644781679411",
-  appId: "1:644781679411:web:bb6eed31139fef0b77d446",
-  measurementId: "G-CV9J8QNHV5"
+  apiKey: "AIzaSyCsTlPcKD0Nq8ZE3vIp5NdFHZA_Uv-FMmE", // API key for Firebase services
+  authDomain: "my-skyn.firebaseapp.com", // Domain for Firebase Authentication
+  databaseURL: "https://my-skyn-default-rtdb.firebaseio.com", // URL for Realtime Database
+  projectId: "my-skyn", // Unique project identifier
+  storageBucket: "my-skyn.firebasestorage.app", // Cloud Storage bucket
+  messagingSenderId: "644781679411", // For Firebase Cloud Messaging
+  appId: "1:644781679411:web:bb6eed31139fef0b77d446", // Unique app identifier
+  measurementId: "G-CV9J8QNHV5" // For Google Analytics (optional)
 };
 
-// Initialize services as needed
-const app = initializeApp(firebaseConfig); //firebase
-// Initialize Realtime Database and export it for use in the app
-const database = getDatabase(app);
-const auth = getAuth(app); // Initialise Firebase Auth
+// Initialize Firebase app with our configuration
+const app = initializeApp(firebaseConfig);
 
-// If you want to keep Analytics enabled, uncomment the next line:
-// const analytics = getAnalytics(app);
+// Initialize and get references to Firebase services
+const database = getDatabase(app); // Realtime Database instance
+const auth = getAuth(app); // Authentication instance
 
+// Export instances so other files can use Firebase services
 export { app, database, auth };

@@ -2,7 +2,9 @@ import React from 'react';
 
 export default function Home() {
   return (
+    // Full viewport height container with gradient background
     <div className="min-h-[calc(100vh-4rem)] bg-gradient-to-br from-purple-50 via-pink-50 to-blue-50 flex items-center justify-center w-full">
+      {/* Main content container - centered with responsive padding */}
       <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 text-center">
         {/* Hero Section */}
         <div className="mb-16">
