@@ -1,0 +1,76 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+firebase-debug.log*
+firebase-debug.*.log*
+
+# Dependencies
+node_modules/
+
+# Build outputs
+dist
+dist-ssr
+build/Release
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# Environment variables
+.env
+.env.local
+.env.production
+
+# Firebase
+.firebase/
+.firebaserc
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage
+lib-cov
+coverage
+.nyc_output
+
+# Build tools
+.grunt
+bower_components
+.lock-wscript
+
+# npm
+.npm
+.eslintcache
+
+# REPL history
+.node_repl_history
+
+# Package files
+*.tgz
+
+# Yarn
+.yarn-integrity
+
+# OS
+.DS_Store
+Thumbs.db
+
+# dataconnect generated files
+.dataconnect
+>>>>>>> 78b1f4eb2ebc516bedcf0c83279e592323663694
