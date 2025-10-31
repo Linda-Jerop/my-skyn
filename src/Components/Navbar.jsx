@@ -37,14 +37,14 @@ export default function Navbar() {
 
   return (
     // Sticky navbar that stays at top while scrolling
-    <nav className="bg-white shadow-lg sticky top-0 z-50">
+    <nav className="bg-gradient-to-r from-white via-purple-50 to-blue-50 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Brand - clickable link to home */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-xl md:text-2xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
           >
             MYSKYN✌🏾
           </Link>
@@ -54,6 +54,7 @@ export default function Navbar() {
             <NavLink to="/" label="Home" />
             <NavLink to="/pairing" label="Pairing Tool" />
             <NavLink to="/products" label="Products" />
+            <NavLink to="/feedback" label="Feedback" />
             
             {/* Conditional rendering: show different links based on login status */}
             {currentUser ? (
@@ -108,6 +109,7 @@ export default function Navbar() {
             <NavLink to="/" label="Home" />
             <NavLink to="/pairing" label="Pairing Tool" />
             <NavLink to="/products" label="Products" />
+            <NavLink to="/feedback" label="Feedback" />
             
             {/* Same conditional logic as desktop menu */}
             {currentUser ? (

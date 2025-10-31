@@ -42,25 +42,81 @@ export default function ProductPairing() {
   const getRecommendations = async () => {
     setLoading(true);
     try {
+      // Get compatibility rules
       const rulesRef = ref(db, 'compatibilityRules');
       const rulesSnapshot = await get(rulesRef);
       
-      if (!rulesSnapshot.exists() || !selectedProduct) {
+      if (!selectedProduct) {
+        console.error('No product selected');
         setLoading(false);
         return;
       }
 
-      const rules = rulesSnapshot.val();
-      const productIngredients = Object.keys(selectedProduct.ingredients || {});
+      // Debug log to check product structure
+      console.log('Selected Product:', selectedProduct);
       
-      // Filter products by selected category
-      const categoryProducts = products.filter(p => 
-        p.category === selectedCategory && p.id !== selectedProduct.id
-      );
+      let rules = {};
+      if (!rulesSnapshot.exists()) {
+        console.warn('No compatibility rules found in database, using default rules');
+        // Use default rules from initial data
+        rules = {
+          "retinol_vitamin_c": {
+            "ingredient1": "retinol",
+            "ingredient2": "vitamin_c",
+            "compatibility": "incompatible",
+            "reason": "pH conflict and potential irritation",
+            "severity": "high",
+            "recommendation": "Use vitamin C in the morning and retinol at night"
+          },
+          "retinol_ha": {
+            "ingredient1": "retinol",
+            "ingredient2": "hyaluronic_acid",
+            "compatibility": "compatible",
+            "reason": "HA helps buffer retinol irritation",
+            "severity": "none",
+            "recommendation": "Layer hyaluronic acid after retinol"
+          },
+          "niacinamide_vitamin_c": {
+            "ingredient1": "niacinamide",
+            "ingredient2": "vitamin_c",
+            "compatibility": "caution",
+            "reason": "May cause flushing in sensitive skin",
+            "severity": "low",
+            "recommendation": "Use at different times or test for sensitivity"
+          }
+        };
+      } else {
+        rules = rulesSnapshot.val();
+      }
+
+      const productIngredients = selectedProduct.ingredients 
+        ? Object.keys(selectedProduct.ingredients)
+        : selectedProduct.activeIngredients 
+        ? selectedProduct.activeIngredients 
+        : [];
+      
+      console.log('Product Ingredients:', productIngredients);
+      
+      // Filter products by selected category (case-insensitive)
+      const categoryProducts = products.filter(p => {
+        // Debug log
+        console.log('Checking product:', p.name, 'Category:', p.category, 'Selected:', selectedCategory);
+        return p.category?.toLowerCase() === selectedCategory?.toLowerCase() && p.id !== selectedProduct.id;
+      });
+
+      // Debug log
+      console.log('Category Products:', categoryProducts);
 
       // Check compatibility for each product
       const compatible = categoryProducts.map(product => {
-        const targetIngredients = Object.keys(product.ingredients || {});
+        const targetIngredients = product.ingredients 
+          ? Object.keys(product.ingredients)
+          : product.activeIngredients 
+          ? product.activeIngredients 
+          : [];
+        
+        console.log(`Checking ingredients for ${product.name}:`, targetIngredients);
+        
         let compatibilityScore = 100;
         let warnings = [];
         let benefits = [];
@@ -69,11 +125,13 @@ export default function ProductPairing() {
         productIngredients.forEach(ing1 => {
           targetIngredients.forEach(ing2 => {
             const rule = Object.values(rules).find(r => 
-              (r.ingredient1 === ing1 && r.ingredient2 === ing2) ||
-              (r.ingredient1 === ing2 && r.ingredient2 === ing1)
+              (r.ingredient1.toLowerCase() === ing1.toLowerCase() && r.ingredient2.toLowerCase() === ing2.toLowerCase()) ||
+              (r.ingredient1.toLowerCase() === ing2.toLowerCase() && r.ingredient2.toLowerCase() === ing1.toLowerCase())
             );
 
             if (rule) {
+              console.log(`Found rule for ${ing1} + ${ing2}:`, rule);
+              
               if (rule.compatibility === 'incompatible') {
                 compatibilityScore -= 30;
                 warnings.push({
@@ -120,7 +178,10 @@ export default function ProductPairing() {
 
   // Handle category selection
   const handleCategorySelect = (category) => {
-    setSelectedCategory(category);
+    console.log('Selected category:', category);
+    // Normalize category name to match product data
+    const normalizedCategory = category.toLowerCase();
+    setSelectedCategory(normalizedCategory);
     setStep(3);
     getRecommendations();
   };
@@ -140,14 +201,15 @@ export default function ProductPairing() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 py-12 px-4">
-      <div className="max-w-4xl mx-auto">
+    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-100 via-purple-100 to-indigo-100 py-12 px-4">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-gray-800 mb-2">
+        <div className="text-center mb-16 animate-fade-in relative">
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_35%_at_50%_10%,rgba(156,39,176,0.1),transparent)] pointer-events-none"></div>
+          <h1 className="text-6xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-text-gradient">
             Find Your Perfect Pair ✨
           </h1>
-          <p className="text-gray-600">
+          <p className="text-xl text-gray-600 bg-white/70 backdrop-blur-md rounded-2xl py-3 px-8 inline-block shadow-xl border border-white/20">
             Smart ingredient matching for safer, more effective skincare
           </p>
         </div>
@@ -171,20 +233,23 @@ export default function ProductPairing() {
 
         {/* Step 1: Select Your Product */}
         {step === 1 && (
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <h2 className="text-2xl font-bold text-gray-800 mb-6">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 border border-white/20">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent mb-8">
               Which product do you already have?
             </h2>
             
-            <input
-              type="text"
-              placeholder="Search by product name or brand..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full p-4 border-2 border-gray-200 rounded-lg mb-6 focus:border-purple-500 focus:outline-none"
-            />
+            <div className="relative mb-8 group">
+              <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl blur opacity-25 group-hover:opacity-40 transition-opacity"></div>
+              <input
+                type="text"
+                placeholder="Search by product name or brand..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="w-full p-5 bg-white/80 backdrop-blur-sm rounded-2xl shadow-inner border border-white/40 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-500/20 text-lg placeholder-gray-400 relative z-10"
+              />
+            </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-h-96 overflow-y-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-h-[32rem] overflow-y-auto pr-4 styled-scrollbar">
               {filteredProducts.map(product => (
                 <div
                   key={product.id}
@@ -283,21 +348,21 @@ export default function ProductPairing() {
                 {recommendations.map(product => (
                   <div
                     key={product.id}
-                    className="border-2 border-gray-200 rounded-lg p-6 hover:shadow-md transition-all"
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100"
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="font-bold text-lg text-gray-800">{product.name}</h3>
-                        <p className="text-gray-600">{product.brand}</p>
-                        <p className="text-purple-600 font-semibold mt-1">${product.price}</p>
+                        <h3 className="font-bold text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">{product.name}</h3>
+                        <p className="text-gray-600 font-medium">{product.brand}</p>
+                        <p className="text-purple-600 font-semibold mt-2">${product.price}</p>
                       </div>
                       <div className="text-right">
-                        <div className={`inline-flex items-center px-3 py-1 rounded-full font-semibold ${
+                        <div className={`inline-flex items-center px-4 py-2 rounded-full font-semibold shadow-sm ${
                           product.compatibilityScore >= 80 
-                            ? 'bg-green-100 text-green-700' 
+                            ? 'bg-gradient-to-r from-green-500 to-emerald-500 text-white' 
                             : product.compatibilityScore >= 60 
-                            ? 'bg-yellow-100 text-yellow-700'
-                            : 'bg-red-100 text-red-700'
+                            ? 'bg-gradient-to-r from-yellow-500 to-orange-500 text-white'
+                            : 'bg-gradient-to-r from-red-500 to-pink-500 text-white'
                         }`}>
                           {product.compatibilityScore}% Match
                         </div>
@@ -325,9 +390,9 @@ export default function ProductPairing() {
                       </div>
                     )}
 
-                    <p className="text-sm text-gray-600 mb-3">{product.description}</p>
+                    <p className="text-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
 
-                    <button className="w-full bg-purple-600 text-white py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                    <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-blue-600 hover:to-purple-600 text-white py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] font-medium shadow-md">
                       Add to Routine
                     </button>
                   </div>

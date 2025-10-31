@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar'
 import Home from './Pages/Home'
 import Products from './Pages/Products'
 import Profile from './Pages/Profile'
+import Feedback from './Pages/Feedback'
 import Login from './Components/auth/login'
 import ProtectedRoute from './Components/auth/ProtectedRoute'
 import { useAuth } from './contexts/AuthContext'
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/pairing" element={<ProductPairing />} />
+            <Route path="/feedback" element={<Feedback />} />
             
             {/* Protected routes - require authentication */}
             {/* ProtectedRoute wrapper checks if user is logged in */}

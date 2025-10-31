@@ -1,5 +1,8 @@
 import { useState } from 'react';
 import { seedDatabase, addProduct, deleteProduct } from '../utils/databaseHelpers';
+import { seedCompatibilityRules } from '../utils/seedCompatibilityRules';
+import { seedTestProducts } from '../utils/seedTestProducts';
+import { seedTestCleansers } from '../utils/seedTestCleansers';
 
 export function DatabaseAdmin() {
   const [loading, setLoading] = useState(false);
@@ -24,6 +27,22 @@ export function DatabaseAdmin() {
       setMessage('✅ Database seeded successfully!');
     } catch (error) {
       setMessage('❌ Error: ' + error.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Seed compatibility rules
+  const handleSeedRules = async () => {
+    if (!window.confirm('This will update product compatibility rules. Continue?')) return;
+    
+    setLoading(true);
+    setMessage('');
+    try {
+      await seedCompatibilityRules();
+      setMessage('✅ Compatibility rules seeded successfully!');
+    } catch (error) {
+      setMessage('❌ Error seeding rules: ' + error.message);
     } finally {
       setLoading(false);
     }
@@ -92,8 +111,59 @@ export function DatabaseAdmin() {
             >
               {loading ? 'Processing...' : '🌱 Seed Database with Sample Data'}
             </button>
+            <p className="text-sm text-gray-600 mb-4">
+              This will populate your database with sample products.
+            </p>
+
+            <button
+              onClick={handleSeedRules}
+              disabled={loading}
+              className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium mb-4"
+            >
+              {loading ? 'Processing...' : '🔄 Update Compatibility Rules'}
+            </button>
+            <p className="text-sm text-gray-600 mb-4">
+              This will update the ingredient compatibility rules used for product pairing.
+            </p>
+
+            <button
+              onClick={async () => {
+                setLoading(true);
+                try {
+                  await seedTestProducts();
+                  setMessage('✅ Test moisturizers added successfully!');
+                } catch (error) {
+                  setMessage('❌ Error adding test products: ' + error.message);
+                }
+                setLoading(false);
+              }}
+              disabled={loading}
+              className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium mb-4"
+            >
+              {loading ? 'Processing...' : '🧪 Add Test Moisturizers'}
+            </button>
+            <p className="text-sm text-gray-600 mb-4">
+              This will add test moisturizer products for pairing functionality testing.
+            </p>
+
+            <button
+              onClick={async () => {
+                setLoading(true);
+                try {
+                  await seedTestCleansers();
+                  setMessage('✅ Test cleansers added successfully!');
+                } catch (error) {
+                  setMessage('❌ Error adding test cleansers: ' + error.message);
+                }
+                setLoading(false);
+              }}
+              disabled={loading}
+              className="w-full bg-green-600 text-white py-3 px-4 rounded-lg hover:bg-green-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-medium"
+            >
+              {loading ? 'Processing...' : '🧪 Add Test Cleansers'}
+            </button>
             <p className="text-sm text-gray-600">
-              This will populate your database with sample products and compatibility rules.
+              This will add test cleanser products for pairing functionality testing.
             </p>
           </div>
         </div>

@@ -12,10 +12,18 @@ import skincareData from '../assets/skincare-database.json';
  */
 export const addProduct = async (productData) => {
   try {
+    // Normalize category to lowercase
+    const normalizedData = {
+      ...productData,
+      category: productData.category?.toLowerCase()
+    };
+    
+    console.log('Adding product with data:', normalizedData);
+    
     const productsRef = ref(database, 'products');
     const newProductRef = push(productsRef);
     await set(newProductRef, {
-      ...productData,
+      ...normalizedData,
       id: newProductRef.key,
       createdAt: new Date().toISOString()
     });
