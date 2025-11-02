@@ -4,10 +4,12 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 // Import auth functions to check login status and logout
 import { useAuth } from '../contexts/AuthContext';
+import { useCart } from '../contexts/CartContext';
 
 export default function Navbar() {
   // Get current user and logout function from auth context
   const { currentUser, logout } = useAuth();
+  const { getTotalItems, setIsCartOpen } = useCart();
   // State to control mobile menu open/closed
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Get current location to highlight active nav link
@@ -27,8 +29,8 @@ export default function Navbar() {
       // Conditional classes: different styles for active vs inactive links
       className={`block w-full md:w-auto text-left md:text-center px-4 py-2 md:px-3 md:py-1 rounded-md transition-colors ${
         isActive(to)
-          ? 'bg-blue-600 text-white md:bg-transparent md:text-blue-600 font-semibold'
-          : 'text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-600'
+          ? 'bg-pink-600 text-white md:bg-transparent md:text-pink-600 font-semibold'
+          : 'text-gray-700 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-pink-600'
       }`}
     >
       {label}
@@ -37,14 +39,14 @@ export default function Navbar() {
 
   return (
     // Sticky navbar that stays at top while scrolling
-    <nav className="bg-gradient-to-r from-white via-purple-50 to-blue-50 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-80">
+    <nav className="bg-gradient-to-r from-white via-pink-50 to-gray-50 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo/Brand - clickable link to home */}
           <Link
             to="/"
             onClick={() => setMobileMenuOpen(false)}
-            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent hover:from-blue-600 hover:to-purple-600 transition-all duration-300"
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-gray-600 to-pink-600 bg-clip-text text-transparent hover:from-pink-600 hover:to-gray-600 transition-all duration-300"
           >
             MYSKYN✌🏾
           </Link>
@@ -54,7 +56,23 @@ export default function Navbar() {
             <NavLink to="/" label="Home" />
             <NavLink to="/pairing" label="Pairing Tool" />
             <NavLink to="/products" label="Products" />
+            <NavLink to="/routine" label="Routines" />
             <NavLink to="/feedback" label="Feedback" />
+            
+            {/* Cart Icon */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative p-2 text-gray-700 hover:text-pink-600 transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              {getTotalItems() > 0 && (
+                <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </button>
             
             {/* Conditional rendering: show different links based on login status */}
             {currentUser ? (
@@ -109,7 +127,24 @@ export default function Navbar() {
             <NavLink to="/" label="Home" />
             <NavLink to="/pairing" label="Pairing Tool" />
             <NavLink to="/products" label="Products" />
+            <NavLink to="/routine" label="Routines" />
             <NavLink to="/feedback" label="Feedback" />
+            
+            {/* Mobile Cart Button */}
+            <button
+              onClick={() => {
+                setIsCartOpen(true);
+                setMobileMenuOpen(false);
+              }}
+              className="w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md transition-colors flex items-center justify-between"
+            >
+              <span>Cart</span>
+              {getTotalItems() > 0 && (
+                <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
+                  {getTotalItems()}
+                </span>
+              )}
+            </button>
             
             {/* Same conditional logic as desktop menu */}
             {currentUser ? (

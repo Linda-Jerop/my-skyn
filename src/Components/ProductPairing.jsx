@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 import { getDatabase, ref, get } from 'firebase/database';
+import { useCart } from '../contexts/CartContext';
+import { useRoutine } from '../contexts/RoutineContext';
 
 export default function ProductPairing() {
   const [step, setStep] = useState(1);
@@ -11,6 +13,8 @@ export default function ProductPairing() {
   const [loading, setLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const { addToCart } = useCart();
+  const { addToRoutine } = useRoutine();
   const db = getDatabase();
 
   // Fetch products from Firebase
@@ -201,12 +205,12 @@ export default function ProductPairing() {
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-pink-100 via-purple-100 to-indigo-100 py-12 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-purple-50 via-blue-50 to-indigo-100 py-12 px-4">
       <div className="max-w-5xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in relative">
           <div className="absolute inset-0 -z-10 bg-[radial-gradient(45%_35%_at_50%_10%,rgba(156,39,176,0.1),transparent)] pointer-events-none"></div>
-          <h1 className="text-6xl font-black bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 bg-clip-text text-transparent mb-6 animate-text-gradient">
+          <h1 className="text-6xl font-black bg-gradient-to-r from-purple-600 via-blue-600 to-indigo-600 bg-clip-text text-transparent mb-6 animate-text-gradient">
             Find Your Perfect Pair ✨
           </h1>
           <p className="text-xl text-gray-600 bg-white/70 backdrop-blur-md rounded-2xl py-3 px-8 inline-block shadow-xl border border-white/20">
@@ -352,7 +356,7 @@ export default function ProductPairing() {
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="font-bold text-xl bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">{product.name}</h3>
+                        <h3 className="font-bold text-xl bg-gradient-to-r from-gray-600 to-pink-600 bg-clip-text text-transparent">{product.name}</h3>
                         <p className="text-gray-600 font-medium">{product.brand}</p>
                         <p className="text-purple-600 font-semibold mt-2">${product.price}</p>
                       </div>
@@ -392,9 +396,20 @@ export default function ProductPairing() {
 
                     <p className="text-sm text-gray-600 mb-4 line-clamp-2">{product.description}</p>
 
-                    <button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:from-blue-600 hover:to-purple-600 text-white py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] font-medium shadow-md">
-                      Add to Routine
-                    </button>
+                    <div className="flex space-x-2">
+                      <button 
+                        onClick={() => addToCart(product)}
+                        className="flex-1 bg-green-600 hover:bg-green-700 text-white py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] font-medium shadow-md"
+                      >
+                        Add to Cart
+                      </button>
+                      <button 
+                        onClick={() => addToRoutine(product, 'morning')}
+                        className="flex-1 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-blue-600 hover:to-purple-600 text-white py-3 rounded-xl transition-all duration-300 transform hover:scale-[1.02] font-medium shadow-md"
+                      >
+                        Add to Routine
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>
