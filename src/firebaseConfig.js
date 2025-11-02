@@ -5,17 +5,17 @@ import { getDatabase } from "firebase/database";
 // Import Authentication for user login/signup functionality
 import { getAuth } from "firebase/auth";
 
-// Firebase project configuration object
-// Contains unique identifiers for connecting to our Firebase project
+// Firebase project configuration object using environment variables
+// This keeps sensitive information secure and out of version control
 const firebaseConfig = {
-  apiKey: "AIzaSyCsTlPcKD0Nq8ZE3vIp5NdFHZA_Uv-FMmE", // API key for Firebase services
-  authDomain: "my-skyn.firebaseapp.com", // Domain for Firebase Authentication
-  databaseURL: "https://my-skyn-default-rtdb.firebaseio.com", // URL for Realtime Database
-  projectId: "my-skyn", // Unique project identifier
-  storageBucket: "my-skyn.firebasestorage.app", // Cloud Storage bucket
-  messagingSenderId: "644781679411", // For Firebase Cloud Messaging
-  appId: "1:644781679411:web:bb6eed31139fef0b77d446", // Unique app identifier
-  measurementId: "G-CV9J8QNHV5" // For Google Analytics (optional)
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
 
 // Initialize Firebase app with our configuration

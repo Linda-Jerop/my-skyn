@@ -9,6 +9,13 @@ lerna-debug.log*
 firebase-debug.log*
 firebase-debug.*.log*
 
+# Environment Variables (IMPORTANT: Keep secrets secure)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
 # Dependencies
 node_modules/
 
