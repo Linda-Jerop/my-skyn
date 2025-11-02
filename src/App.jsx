@@ -16,7 +16,7 @@ import DatabaseAdmin from './Pages/DatabaseAdmin'
 
 function App() {
   return (
-    <Router> {/* to provide routing context to entire app */}
+    <Router basename={import.meta.env.PROD ? '/my-skyn' : ''}> {/* Handle base path for GitHub Pages */}
       <CartProvider>
         <RoutineProvider>
           <div className="min-h-screen bg-gray-50 flex flex-col">
